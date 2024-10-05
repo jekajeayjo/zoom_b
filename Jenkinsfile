@@ -37,7 +37,7 @@ pipeline {
             stage('Run docker container') {
                  steps {
                      script {
-                        sh("docker run -td --restart unless-stopped  -v /opt:/opt --name b-ksolutions -p 8080:8080 b-ksolutions")
+                        sh("docker run -td --restart unless-stopped  -v /opt:/opt --name b-ksolutions -p 8081:8080 b-ksolutions")
                      }
                   }
              }
