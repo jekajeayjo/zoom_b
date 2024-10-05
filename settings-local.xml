@@ -18,8 +18,14 @@
     </servers>
     <mirrors>
         <mirror>
-            <id>maven-group</id>
-            <name>maven-group</name>
+            <id>release-http-unblocker</id>
+            <name>central</name>
+            <url>http://185.215.186.145:32003/repository/maven-public/</url>
+            <mirrorOf>maven-group</mirrorOf>
+        </mirror>
+        <mirror>
+            <id>snapshot-http-unblocker</id>
+            <name>snapshots</name>
             <url>http://185.215.186.145:32003/repository/maven-public/</url>
             <mirrorOf>maven-group</mirrorOf>
         </mirror>

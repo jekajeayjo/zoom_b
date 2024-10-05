@@ -1,14 +1,14 @@
-FROM maven:3.9.4-amazoncorretto-20 AS MAVEN_BUILD
+FROM maven:3.9.9-amazoncorretto-21-alpine AS MAVEN_BUILD
 ARG BUILD_ID=0.0.1-SNAPSHOT
 COPY pom.xml /build/
 COPY src /build/src/
 RUN mkdir -p /root/.m2 \  && mkdir /root/.m2/repository
-COPY settings-local.xml /root/.m2
+COPY settings-local.xml /root/.m2/settings.xml
 COPY settings.xml /usr/share/maven/conf/settings.xml
 WORKDIR /build/
 RUN mvn clean package -DskipTests  -Dbuild.version=${BUILD_ID} -ntp
 
-FROM openjdk:20
+FROM openjdk:21
 USER root
 RUN mkdir /opt/bucket
 ENV DB_HOST=185.215.187.106
