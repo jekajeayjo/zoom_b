@@ -25,4 +25,9 @@ public class AuthController {
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(accountService.authenticate(request));
     }
+
+    @PostMapping("/authenticate-copy")
+    public ResponseEntity<AuthenticationResponse> authenticateCopy(@RequestBody AuthenticationRequest request) {
+        return ResponseEntity.ok(accountService.authenticate(request));
+    }
 }
