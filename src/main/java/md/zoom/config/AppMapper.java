@@ -2,8 +2,12 @@ package md.zoom.config;
 
 import md.kobalt.security.user.JwtUserDetails;
 import md.zoom.model.dto.*;
+import md.zoom.model.dto.view.MenuCategoryViewDto;
+import md.zoom.model.dto.view.MenuItemViewDto;
 import md.zoom.model.entity.*;
 import md.zoom.model.entity.view.AccountViewEntity;
+import md.zoom.model.entity.view.MenuCategoryViewEntity;
+import md.zoom.model.entity.view.MenuItemViewEntity;
 import md.zoom.model.input.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -56,4 +60,9 @@ public interface AppMapper {
     MenuItemSizeShortDto mapToShort(MenuItemSizeEntity obj);
 
     MenuItemSizeLanguageDto map(MenuItemSizeLanguageEntity obj);
+
+    MenuCategoryViewDto map(MenuCategoryViewEntity obj);
+
+    MenuItemViewDto map(MenuItemViewEntity obj);
+
 }

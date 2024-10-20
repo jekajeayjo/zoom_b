@@ -7,15 +7,23 @@ import md.kobalt.security.repository.specifiaction.FilterCriteria;
 import md.zoom.config.AppMapper;
 import md.zoom.model.dto.MenuCategoryDto;
 import md.zoom.model.dto.MenuItemDto;
+import md.zoom.model.dto.view.MenuCategoryViewDto;
+import md.zoom.model.dto.view.MenuItemViewDto;
 import md.zoom.model.entity.MenuCategoryEntity;
 import md.zoom.model.entity.MenuCategoryLanguageEntity;
 import md.zoom.model.entity.MenuItemEntity;
 import md.zoom.model.entity.MenuItemLanguageEntity;
+import md.zoom.model.entity.view.MenuCategoryViewEntity;
+import md.zoom.model.entity.view.MenuItemViewEntity;
 import md.zoom.model.input.MenuCategoryInput;
 import md.zoom.model.input.MenuItemInput;
 import md.zoom.repository.*;
 import md.zoom.repository.spec.MenuCategorySpecification;
+import md.zoom.repository.spec.MenuCategoryViewSpecification;
 import md.zoom.repository.spec.MenuItemSpecification;
+import md.zoom.repository.spec.MenuItemViewSpecification;
+import md.zoom.repository.view.MenuCategoryViewRepository;
+import md.zoom.repository.view.MenuItemViewRepository;
 import md.zoom.service.MenuService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
@@ -33,6 +41,8 @@ public class MenuServiceImpl implements MenuService {
     private final MenuCategoryLanguageRepository menuCategoryLanguageRepository;
     private final MenuItemLanguageRepository menuItemLanguageRepository;
     private final LanguageRepository languageRepository;
+    private final MenuCategoryViewRepository menuCategoryViewRepository;
+    private final MenuItemViewRepository menuItemViewRepository;
     private final AppMapper appMapper;
 
 
@@ -49,6 +59,28 @@ public class MenuServiceImpl implements MenuService {
             menuCategoryDto.setLanguages(menuCategoryLanguageEntities.stream().map(appMapper::map).toList());
             return menuCategoryDto;
         });
+        return pageDto;
+    }
+
+    @Override
+    public Page<MenuCategoryViewDto> getAllCategoryInfo(PageParamDto pageParamDto) {
+        Specification<MenuCategoryViewEntity> masterSpec = null;
+        for (FilterCriteria filterCriteria : pageParamDto.getCriteria())
+            masterSpec = Specification.where(masterSpec).and(new MenuCategoryViewSpecification(filterCriteria));
+
+        Page<MenuCategoryViewEntity> page = menuCategoryViewRepository.findAll(masterSpec, pageParamDto.getPageRequest());
+        Page<MenuCategoryViewDto> pageDto = page.map(appMapper::map);
+        return pageDto;
+    }
+
+    @Override
+    public Page<MenuItemViewDto> getAllItemInfo(PageParamDto pageParamDto) {
+        Specification<MenuItemViewEntity> masterSpec = null;
+        for (FilterCriteria filterCriteria : pageParamDto.getCriteria())
+            masterSpec = Specification.where(masterSpec).and(new MenuItemViewSpecification(filterCriteria));
+
+        Page<MenuItemViewEntity> page = menuItemViewRepository.findAll(masterSpec, pageParamDto.getPageRequest());
+        Page<MenuItemViewDto> pageDto = page.map(appMapper::map);
         return pageDto;
     }
 

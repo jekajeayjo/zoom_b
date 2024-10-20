@@ -22,7 +22,6 @@ public class MenuController {
 
     @PutMapping(value = "/category-page")
     public ResponseEntity<Page<MenuCategoryDto>> getAllCategory(@RequestBody PageParamDto pageParamDto) {
-
         return ResponseEntity.ok(menuService.getAllCategory(pageParamDto));
     }
 
