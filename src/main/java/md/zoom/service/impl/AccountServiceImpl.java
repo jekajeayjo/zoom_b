@@ -11,7 +11,7 @@ import md.kobalt.security.exception.WebTokenException;
 import md.kobalt.security.model.dto.PageParamDto;
 import md.kobalt.security.repository.specifiaction.FilterCriteria;
 import md.kobalt.security.user.JwtUserDetails;
-import md.zoom.config.mapping.AppMapper;
+import md.zoom.config.AppMapper;
 import md.zoom.model.dto.AccountDto;
 import md.zoom.model.dto.AccountViewDto;
 import md.zoom.model.entity.AccountEntity;

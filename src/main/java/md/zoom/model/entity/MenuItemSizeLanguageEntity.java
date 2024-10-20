@@ -7,27 +7,24 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "menu_item_language", schema = "public")
+@Table(name = "menu_item_size_language", schema = "public")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class MenuItemLanguageEntity {
+public class MenuItemSizeLanguageEntity {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-    @Column(name = "menu_item_id")
-    private Long menuItemId;
-
     @Column(name = "value")
     private String value;
 
-    @Column(name = "descriptions")
-    private String descriptions;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "menu_item_size_id")
+    private MenuItemSizeEntity menuItemSize;
 
     @Column(name = "language_id")
     private Long languageId;

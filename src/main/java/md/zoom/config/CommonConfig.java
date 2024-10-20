@@ -5,7 +5,6 @@ import md.kobalt.security.exception.EntityNotFoundException;
 import md.kobalt.security.exception.ForbiddenException;
 import md.kobalt.security.user.JwtUserDetails;
 import md.kobalt.security.utils.ErrorMessage;
-import md.zoom.config.mapping.AppMapper;
 import md.zoom.model.entity.AccountEntity;
 import md.zoom.model.enums.AccountStatusEnum;
 import md.zoom.repository.AccountRepository;
@@ -13,8 +12,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
-import java.util.Properties;
 
 //@AutoConfiguration
 @Configuration

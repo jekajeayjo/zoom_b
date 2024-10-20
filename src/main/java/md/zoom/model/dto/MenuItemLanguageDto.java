@@ -8,5 +8,7 @@ public class MenuItemLanguageDto {
 
     private Long languageId;
 
+    private String descriptions;
+
     private String value;
 }

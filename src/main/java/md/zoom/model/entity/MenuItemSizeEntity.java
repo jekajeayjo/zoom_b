@@ -6,29 +6,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
-@Table(name = "menu_item_language", schema = "public")
+@Table(name = "menu_item_size", schema = "public")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class MenuItemLanguageEntity {
+public class MenuItemSizeEntity {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-    @Column(name = "menu_item_id")
-    private Long menuItemId;
-
     @Column(name = "value")
     private String value;
 
-    @Column(name = "descriptions")
-    private String descriptions;
-
-    @Column(name = "language_id")
-    private Long languageId;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "menuItemSize", cascade = CascadeType.ALL)
+    private List<MenuItemSizeLanguageEntity> languages;
 }

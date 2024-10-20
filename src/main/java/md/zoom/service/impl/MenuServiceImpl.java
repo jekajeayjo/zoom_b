@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import md.kobalt.security.model.dto.PageParamDto;
 import md.kobalt.security.repository.specifiaction.FilterCriteria;
-import md.zoom.config.mapping.AppMapper;
+import md.zoom.config.AppMapper;
 import md.zoom.model.dto.MenuCategoryDto;
 import md.zoom.model.dto.MenuItemDto;
 import md.zoom.model.entity.MenuCategoryEntity;

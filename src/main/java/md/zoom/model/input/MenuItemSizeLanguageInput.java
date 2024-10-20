@@ -3,9 +3,13 @@ package md.zoom.model.input;
 import lombok.Data;
 
 @Data
-public class MenuItemLanguageInput {
+public class MenuItemSizeLanguageInput {
+
     private Long id;
+
     private String value;
-    private String descriptions;
+
+    private Long menuItemSizeId;
+
     private Long languageId;
 }

@@ -34,6 +34,15 @@ public class MenuItemEntity {
     @Column(name = "is_enabled")
     private Boolean isEnabled;
 
+    @Column(name = "menu_item_size_id")
+    private Long menuItemSizeId;
+
+    @Column(name = "price")
+    private Double price;
+
+    @Column(name = "size")
+    private Double size;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "menuItemId", cascade = CascadeType.ALL)
     private List<MenuItemLanguageEntity> languages;
 }

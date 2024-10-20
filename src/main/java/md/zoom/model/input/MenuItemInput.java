@@ -11,5 +11,9 @@ public class MenuItemInput {
     private String value;
     private Boolean isEnabled;
     private String image;
-    List<MenuItemLanguageInput> languages;
+    private Long menuItemSizeId;
+
+    private Double price;
+    private Double size;
+    private List<MenuItemLanguageInput> languages;
 }

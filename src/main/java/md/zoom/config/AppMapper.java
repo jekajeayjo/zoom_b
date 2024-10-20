@@ -1,17 +1,18 @@
-package md.zoom.config.mapping;
+package md.zoom.config;
 
 import md.kobalt.security.user.JwtUserDetails;
 import md.zoom.model.dto.*;
 import md.zoom.model.entity.*;
 import md.zoom.model.entity.view.AccountViewEntity;
-import md.zoom.model.input.MenuCategoryInput;
-import md.zoom.model.input.MenuItemInput;
-import md.zoom.model.input.RegisterRequestExtended;
+import md.zoom.model.input.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring")
+import java.util.Arrays;
+
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", imports = {Arrays.class})
 public interface AppMapper {
 
     @Mapping(target = "role", ignore = true)
@@ -43,4 +44,16 @@ public interface AppMapper {
 
     MenuItemLanguageDto map(MenuItemLanguageEntity obj);
 
+    @Mapping(target = "menuItemSize.id", source = "menuItemSizeId")
+    MenuItemSizeLanguageEntity map(MenuItemSizeLanguageInput obj);
+
+    MenuItemSizeEntity map(MenuItemSizeInput obj);
+
+    MenuItemSizeEntity map(MenuItemSizeInput obj, @MappingTarget MenuItemSizeEntity menuItemSizeEntity);
+
+    MenuItemSizeDto map(MenuItemSizeEntity obj);
+
+    MenuItemSizeShortDto mapToShort(MenuItemSizeEntity obj);
+
+    MenuItemSizeLanguageDto map(MenuItemSizeLanguageEntity obj);
 }
