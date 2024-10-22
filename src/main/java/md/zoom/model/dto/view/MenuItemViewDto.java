@@ -25,7 +25,7 @@ public class MenuItemViewDto {
 
     private String descriptions;
 
-    private String languageId;
+    private Long languageId;
 
     private String languageValue;
 }

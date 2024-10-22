@@ -44,7 +44,7 @@ public class MenuItemViewEntity {
     private String price;
 
     @Column(name = "language_id")
-    private String languageId;
+    private Long languageId;
 
     @Column(name = "language_value")
     private String languageValue;
