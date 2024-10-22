@@ -28,6 +28,9 @@ public class MenuItemViewEntity {
     @Column(name = "menu_item_size_id")
     private Long menItemSizeId;
 
+    @Column(name = "menu_category_id")
+    private Long menuCategoryId;
+
     @Column(name = "menu_item_size_value")
     private String menuItemSizeValue;
 
