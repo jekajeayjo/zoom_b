@@ -35,7 +35,7 @@ public class ExtendedSecurityConfiguration {
                 .and()
                 .authorizeHttpRequests()
 //        .requestMatchers("/api/v1/auth/**","/**")
-                .requestMatchers("/api/v1/auth/**","/api/v1/menu-info/**")
+                .requestMatchers("/api/v1/auth/**","/api/v1/menu-info/**","api/v1/common/language-list")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
