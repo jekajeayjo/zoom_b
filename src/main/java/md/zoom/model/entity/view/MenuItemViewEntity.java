@@ -37,6 +37,9 @@ public class MenuItemViewEntity {
     @Column(name = "descriptions")
     private String descriptions;
 
+    @Column(name = "price")
+    private String price;
+
     @Column(name = "language_id")
     private String languageId;
 

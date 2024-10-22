@@ -13,6 +13,8 @@ public class MenuItemViewDto {
 
     private String image;
 
+    private Double price;
+
     private Long menItemSizeId;
 
     private String menuItemSizeValue;
