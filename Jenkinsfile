@@ -1,7 +1,7 @@
 pipeline {
 
     environment {
-        registry = "b-ksolutions"
+        registry = "zoom_b"
         acPort = 1337
         dockerImage = ''
         }

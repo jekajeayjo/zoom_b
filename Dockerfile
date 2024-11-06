@@ -23,3 +23,4 @@ COPY --from=MAVEN_BUILD /build/target/zoom-${BUILD_ID}.jar /app/zoom.jar
 EXPOSE 8080
 
 ENTRYPOINT exec java -jar -Dspring.profiles.active=release  zoom.jar
+
